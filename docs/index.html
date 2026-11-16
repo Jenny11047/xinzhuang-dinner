@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用預算、餐點類別和晚餐時段，挑一份新莊站或輔大站周邊的晚餐。">
+  <title>新莊晚餐吃什麼？｜胡瑜真</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./catalog.js"></script>
+  <script defer src="./selection.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#finder">跳到晚餐篩選</a>
+  <header class="top">
+    <div class="wrap nav">
+      <a class="brand" href="./"><span aria-hidden="true">●</span> 新莊晚餐</a>
+      <nav aria-label="網站導覽"><a href="#menu">餐點清單</a><a href="#sources">資料說明</a></nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">新莊站 <span></span> 輔大站</p>
+          <h1 id="title">晚餐吃<span>什麼？</span></h1>
+          <p class="hero-description">選好預算和時間，抽一份新莊今晚可以考慮的晚餐。</p>
+        </div>
+        <div class="illustration" aria-hidden="true">
+          <div class="halo"></div><div class="steam"></div><div class="sticks"></div>
+          <div class="bowl"><i></i><i></i><i></i></div><div class="base"></div>
+        </div>
+      </div>
+    </section>
+    <div class="wrap content">
+      <div class="decision">
+        <section id="finder" class="panel" aria-labelledby="filter-title">
+          <h2 id="filter-title">今晚的條件</h2>
+          <form id="filters">
+            <div class="fields">
+              <label>地區<select name="area"><option value="all">所有地區</option><option value="xinzhuang">新莊站</option><option value="fuda">輔大站</option></select></label>
+              <label>預算上限<select name="budget"><option value="all">不限</option><option value="100">NT$100</option><option value="150">NT$150</option><option value="200" selected>NT$200</option><option value="250">NT$250</option></select></label>
+              <label>想吃的類別<select name="category" id="category"><option value="all">都可以</option></select></label>
+              <label>用餐方式<select name="service"><option value="all">不限</option><option value="pickup">可外帶／自取</option><option value="dinein">可內用</option></select></label>
+              <label>星期<select name="day"><option value="0">星期日</option><option value="1">星期一</option><option value="2">星期二</option><option value="3">星期三</option><option value="4">星期四</option><option value="5">星期五</option><option value="6">星期六</option></select></label>
+              <label>想幾點吃<select name="time"><option value="all">不限時段</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00" selected>19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="00:00">隔天 00:00</option></select></label>
+            </div>
+            <div class="actions"><button class="primary" type="submit">幫我選一份 <span aria-hidden="true">↗</span></button><button class="secondary" type="reset">重設條件</button></div>
+          </form>
+        </section>
+        <section id="pick" class="pick" aria-labelledby="pick-title">
+          <div class="pick-head"><h2 id="pick-title">今晚吃這個</h2><span aria-hidden="true">✦</span></div>
+          <div id="picked" aria-live="polite" aria-atomic="true">
+            <p class="placeholder">按「幫我選一份」，從符合條件的餐點抽出今晚的一餐。</p>
+          </div>
+        </section>
+      </div>
+      <section id="menu" aria-labelledby="menu-title">
+        <div class="section-heading">
+          <div><h2 id="menu-title">餐點清單</h2><p id="result-count" role="status">正在讀取餐點資料…</p></div>
+          <label class="search">搜尋店家或餐點 <input type="search" name="query" id="query" placeholder="例如：牛肉、鍋貼"></label>
+        </div>
+        <div id="cards" class="cards"></div>
+        <noscript><p>請啟用 JavaScript，才能使用餐點篩選和抽選。</p></noscript>
+      </section>
+      <section id="sources" class="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">資料說明</h2>
+        <p>時段依資料來源公布的時間計算，遇到臨時休息或售完，請以店家公告為準。外送平台價格不含運費或服務費，可能和現場不同。「起」表示菜單所列的起價。選了時段或用餐方式時，只會顯示有查到對應資訊的店家。</p>
+      </section>
+    </div>
+  </main>
+  <footer><div class="wrap foot"><span>新莊晚餐吃什麼？</span><span>胡瑜真製作</span></div></footer>
+  <template id="meal-template">
+    <article class="meal">
+      <div class="meal-top"><span data-field="area" class="pill"></span><span data-field="category" class="type"></span></div>
+      <h3 data-field="name"></h3>
+      <p data-field="shop" class="shop"></p>
+      <div class="price"><strong data-field="price"></strong><span data-field="priceKind"></span></div>
+      <p data-field="address" class="address"></p>
+      <p data-field="hours" class="hours"></p>
+      <p data-field="service" class="hours"></p>
+      <div class="meal-links"><a data-field="menu" target="_blank" rel="noopener noreferrer">看菜單 <span aria-hidden="true">↗</span></a><a data-field="map" target="_blank" rel="noopener noreferrer">看地圖 <span aria-hidden="true">↗</span></a></div>
+      <p data-field="date" class="verified"></p>
+    </article>
+  </template>
+</body>
+</html>
