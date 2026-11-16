@@ -112,6 +112,23 @@ const dinnerCatalog = [
       {"id":"japanese-chicken-curry","name":"日本咖哩醬雞肉飯","price":165,"category":"飯類"},
       {"id":"fried-dumplings","name":"黃金炸水餃（14顆）","price":155,"category":"鍋貼水餃"}
     ]
+  },
+  {
+    "id": "doufuzhuang-xinzhuang",
+    "name": "豆輔庄",
+    "area": "xinzhuang",
+    "address": "新北市新莊區新莊路315號",
+    "menu": {"kind":"delivery","url":"https://www.ubereats.com/tw/store/%E8%B1%86%E8%BC%94%E5%BA%84/6Ut9YTn0V7q-ru1VrJQ3Dg"},
+    "checkedOn": "2026-11-17",
+    "hoursBasis": "delivery",
+    "hoursUrl": "https://www.ubereats.com/tw/store/%E8%B1%86%E8%BC%94%E5%BA%84/6Ut9YTn0V7q-ru1VrJQ3Dg",
+    "hours": [[["12:00","23:45"]],[["11:45","23:45"]],[["11:30","23:45"]],[["11:45","23:45"]],[["11:30","23:30"]],[["12:00","23:45"]],[["12:15","23:45"]]],
+    "services": [],
+    "meals": [
+      {"id":"smoked-chicken-bento","name":"煙燻雞肉便當","price":150,"category":"飯類"},
+      {"id":"signature-stinky-tofu","name":"臭豆腐","price":85,"category":"小吃"},
+      {"id":"zhajiang-noodles","name":"眷村炸醬拉麵","price":95,"category":"麵類"}
+    ]
   }
 ];
 
